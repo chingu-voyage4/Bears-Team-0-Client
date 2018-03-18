@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { Link } from "react-router-dom";
 import {
   changeTitle,
   changeDescription,
@@ -25,9 +26,20 @@ class QuizStart extends Component {
             value={this.props.description}
             onChange={this.props.changeDescription}
           />
-          <button type="button" onClick={this.props.submit}>
+          <Link
+            className="button"
+            onClick={() => {
+              console.log("submitting!");
+              this.props.submit();
+            }}
+            to="/make-quiz"
+            style={{
+              textDecoration: "none",
+              textAlign: "center"
+            }}
+          >
             Make A Quiz
-          </button>
+          </Link>
         </div>
       </form>
     );
